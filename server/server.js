@@ -22,6 +22,22 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     await client.connect();
+    const toDoCollections = client.db("toDoApp").collection("toDoTask");
+
+    // added a task
+    app.post("/task", async (req, res) => {
+      const toDo = req.body;
+      const result = await toDoCollections.insertOne(toDo);
+      res.send(result);
+    });
+
+    // get task with only email
+    app.get("/task/:email", async (req, res) => {
+      const email = req.params.email;
+      const query = { email: email };
+      const result = await toDoCollections.find(query).toArray();
+      res.send(result);
+    });
   } finally {
   }
 }
