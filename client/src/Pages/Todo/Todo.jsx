@@ -4,6 +4,7 @@ import TaskAddForm from "./TaskAddForm";
 import { useQuery } from "react-query";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase/firebaseInit";
+import TableItem from "./TableItem";
 
 const Todo = () => {
   const [user] = useAuthState(auth);
@@ -62,26 +63,13 @@ const Todo = () => {
                 </tr>
               </thead>
               <tbody>
-                {tasks.map((task) => (
-                  <>
-                    <tr className=" dark:bg-gray-800 ">
-                      <td className="px-6 py-4 font-medium text-white ">
-                        {task.taskName}
-                      </td>
-                      <td className="px-6 py-4 text-white">
-                        {" "}
-                        {task.taskDetails}
-                      </td>
-                      <td className=" py-4 float-right pr-5">
-                        <button className="bg-green-600 text-white px-2 font-bold">
-                          Done
-                        </button>
-                        <button className="ml-12 bg-red-600 text-white px-2 font-bold">
-                          Delete
-                        </button>
-                      </td>
-                    </tr>
-                  </>
+                {tasks.map((task, index) => (
+                  <TableItem
+                    key={task._id}
+                    index={index}
+                    refetch={refetch}
+                    task={task}
+                  />
                 ))}
               </tbody>
             </table>
