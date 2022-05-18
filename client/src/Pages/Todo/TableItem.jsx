@@ -3,7 +3,6 @@ import toast from "react-hot-toast";
 
 const TableItem = ({ task, index, refetch }) => {
   const { taskName, taskDetails, _id, status } = task;
-  console.log(status);
 
   const handelDelete = (id) => {
     const isConfirm = window.confirm();
@@ -45,7 +44,7 @@ const TableItem = ({ task, index, refetch }) => {
             {taskName}
           </td>
           <td className="px-6 py-4 text-white line-through"> {taskDetails}</td>
-          <td className=" py-4 float-right pr-5">
+          <td className=" py-4 flex items-center justify-center">
             <button
               onClick={() => handelDone(_id)}
               className="bg-green-600 text-white px-2 font-bold rounded cursor-pointer"
@@ -55,7 +54,7 @@ const TableItem = ({ task, index, refetch }) => {
             </button>
             <button
               onClick={() => handelDelete(_id)}
-              className="ml-12 bg-red-600 text-white px-2 font-bold rounded"
+              className="m-2 bg-red-600 text-white px-2 font-bold rounded"
             >
               Delete
             </button>
@@ -72,7 +71,7 @@ const TableItem = ({ task, index, refetch }) => {
           {taskName}
         </td>
         <td className="px-6 py-4 text-white cursor-pointer"> {taskDetails}</td>
-        <td className=" py-4 float-right pr-5">
+        <td className=" py-4  flex items-center justify-center">
           <button
             onClick={() => handelDone(_id)}
             className="bg-green-600 text-white px-2 font-bold rounded"
@@ -81,7 +80,7 @@ const TableItem = ({ task, index, refetch }) => {
           </button>
           <button
             onClick={() => handelDelete(_id)}
-            className="ml-12 bg-red-600 text-white px-2 font-bold rounded"
+            className="m-2 bg-red-600 text-white px-2 font-bold rounded"
           >
             Delete
           </button>

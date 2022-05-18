@@ -39,26 +39,23 @@ async function run() {
       res.send(result);
     });
 
-    // delete a task using _id
-
+    // delete a task
     app.delete("/task/:id", async (req, res) => {
-      console.log("hello");
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
       const result = await toDoCollections.deleteOne(query);
       res.send(result);
     });
-    // update data by id using put
 
+    // update a task
     app.put("/task/:id", async (req, res) => {
-      console.log("hello");
       const id = req.params.id;
       const filter = { _id: ObjectId(id) };
       const options = { upsert: true };
       // create a document that sets the plot of the movie
       const updateDoc = {
         $set: {
-          status: "done",
+          status: "Success",
         },
       };
 
@@ -69,16 +66,18 @@ async function run() {
       );
       res.send(result);
     });
+
+    // End
   } finally {
   }
 }
-
 run().catch(console.dir);
 
+// Default
 app.get("/", (req, res) => {
   res.send("APi is Ready to Use");
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Todo Baby app listening on port ${port}`);
 });

@@ -20,7 +20,6 @@ const Todo = () => {
   } = useQuery("tasks", () =>
     fetch(` http://localhost:5000/task/${email}`).then((res) => res.json())
   );
-  console.log(tasks);
 
   if (isLoading) {
     return <h1>Loading</h1>;
@@ -33,7 +32,7 @@ const Todo = () => {
         style={{
           backgroundColor: "#111827",
         }}
-        className="h-[100vh] "
+        className="h-[100%] "
       >
         <Navbar />
 
@@ -47,8 +46,8 @@ const Todo = () => {
           {/* SHow Todo Added Data */}
           {/**/}
 
-          <div className="relative overflow-x-auto shadow-md sm:rounded-lg border-t-2 mt-5 w-[70%] mx-auto">
-            <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <div className="relative overflow-x-auto shadow-md sm:rounded-lg border-t-2 mt-5 lg:w-[70%] w-full mx-auto">
+            <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 ">
               <thead className="text-xs text-gray-700 uppercase  dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                   <th

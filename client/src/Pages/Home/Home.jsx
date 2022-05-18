@@ -13,11 +13,7 @@ const Home = () => {
 
   return (
     <>
-      <div
-        style={{
-          backgroundColor: "#111827",
-        }}
-      >
+      <div>
         <div className="h-[100vh] flex justify-center items-center flex-col">
           <Link
             onClick={() => signInWithGoogle()}
