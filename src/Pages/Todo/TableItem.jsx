@@ -36,41 +36,24 @@ const TableItem = ({ task, index, refetch }) => {
       });
   };
 
-  if (status) {
-    return (
-      <>
-        <tr className=" dark:bg-gray-800 ">
-          <td className="px-6 py-4 font-medium text-white line-through cursor-pointer ">
-            {taskName}
-          </td>
-          <td className="px-6 py-4 text-white line-through"> {taskDetails}</td>
-          <td className=" py-4 flex items-center justify-center">
-            <button
-              onClick={() => handelDone(_id)}
-              className="bg-green-600 text-white px-2 font-bold rounded cursor-pointer"
-              disabled
-            >
-              Done
-            </button>
-            <button
-              onClick={() => handelDelete(_id)}
-              className="m-2 bg-red-600 text-white px-2 font-bold rounded"
-            >
-              Delete
-            </button>
-          </td>
-        </tr>
-      </>
-    );
-  }
-
   return (
     <>
       <tr className=" dark:bg-gray-800 ">
-        <td className="px-6 py-4 font-medium text-white cursor-pointer">
+        <td
+          className={`px-6 py-4 font-medium text-white ${
+            status && "line-through"
+          } cursor-pointer`}
+        >
           {taskName}
         </td>
-        <td className="px-6 py-4 text-white cursor-pointer"> {taskDetails}</td>
+        <td
+          className={`px-6 py-4 text-white ${
+            status && "line-through"
+          } cursor-pointer`}
+        >
+          {" "}
+          {taskDetails}
+        </td>
         <td className=" py-4  flex items-center justify-center">
           <button
             onClick={() => handelDone(_id)}
