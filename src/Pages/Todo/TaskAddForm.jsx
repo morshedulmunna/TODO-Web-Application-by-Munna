@@ -17,7 +17,7 @@ const TaskAddForm = ({ refetch, email }) => {
     // console.log(task);
 
     // POST Method to send task Data
-    fetch("http://localhost:5000/task", {
+    fetch("https://guarded-refuge-11671.herokuapp.com/task", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

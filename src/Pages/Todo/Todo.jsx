@@ -18,7 +18,9 @@ const Todo = () => {
     isLoading,
     refetch,
   } = useQuery("tasks", () =>
-    fetch(` http://localhost:5000/task/${email}`).then((res) => res.json())
+    fetch(` https://guarded-refuge-11671.herokuapp.com/task/${email}`).then(
+      (res) => res.json()
+    )
   );
 
   if (isLoading) {
